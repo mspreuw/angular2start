@@ -1,0 +1,24 @@
+
+  <h2>Mijn uit te voeren werken</h2>
+  <div>
+  <label>Klus:</label> <input #klusName />
+  <button (click)="add(klusName.value); klusName.value=''">
+    Add
+  </button>
+</div>
+  <ul class="klussen">
+    <li *ngFor="let klus of klussen"
+      [class.selected]="klus === selectedKlus"
+      (click)="onSelect(klus)">
+      <span class="badge">{{klus.id}}</span>
+      {{klus.name}}
+      <button class="delete"
+      (click)="delete(klus); $event.stopPropagation()">x</button>
+    </li>
+  </ul>
+  <div *ngIf="selectedKlus">
+    <h2>
+      {{selectedKlus.name | uppercase}}
+    </h2>
+  <!--  <button (click)="gotoDetail()">View Details</button> -->
+  </div>

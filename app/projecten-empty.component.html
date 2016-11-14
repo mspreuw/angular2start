@@ -1,0 +1,7 @@
+  <div class="grid grid-pad">
+    <div *ngFor="let klus of klussen" (click)="gotoDetail(klus)" class="col-1-4">
+      <div class="module klus">
+         <h4>{{klus.name}}</h4>
+      </div>
+    </div>
+  </div>
